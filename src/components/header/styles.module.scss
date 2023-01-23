@@ -1,0 +1,99 @@
+@import "src/constants/variables.scss";
+
+.main {
+  background-color: #2a2d31;
+  color: #757c87;
+  width: 100%;
+  height: $header-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .searchbar {
+    width: 400px;
+    border: 2px solid rgba(117, 124, 135, 0.3);
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px;
+    height: 35px;
+    border-radius: 8px;
+    margin-left: 30px;
+  }
+  .searchbar > input {
+    width: 100%;
+    border: none;
+    padding-left: 10px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    background-color: transparent;
+    color: #757c87;
+  }
+
+  .searchbar > input:focus {
+    outline: none;
+  }
+
+  .searchbar svg {
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+
+  .headerMenu {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
+    gap: 30px;
+  }
+
+  .headerMenu > button {
+    width: 80px;
+    height: 35px;
+    border: none;
+    background-color: #98f0d4;
+    color: black;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    &:hover {
+      background-color: #89d9c0;
+    }
+  }
+
+  .headerMenu svg {
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover {
+      color: #f0f2f3;
+    }
+  }
+
+  .userAccount {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .userAccount > h3 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .userAccount > img {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

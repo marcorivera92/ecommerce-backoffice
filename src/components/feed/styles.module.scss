@@ -1,0 +1,7 @@
+@import "src/constants/variables.scss";
+
+.main {
+  height: calc(100vh - $header-height);
+  width: 100%;
+  background-color: #191a1c;
+}
