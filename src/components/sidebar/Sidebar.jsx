@@ -5,17 +5,23 @@ import CurrencyBitcoinOutlinedIcon from "@mui/icons-material/CurrencyBitcoinOutl
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import styles from "./styles.module.scss";
 
-const Sidebar = () => {
+const Sidebar = ({ setRoute }) => {
   return (
     <div className={styles.main}>
       <div className={styles.titleWrapper}>
         <CurrencyBitcoinOutlinedIcon className={styles.logo} />
-        <h1 className={styles.title}> Dashboard NFT</h1>
+        <h1 className={styles.title}> Dashboard </h1>
       </div>
 
       <div className="menu">
         {menuLinks.map((item) => (
-          <SidebarLink icon={item.icon} key={item.id} label={item.label} />
+          <SidebarLink
+            setRoute={setRoute}
+            route={item.route}
+            icon={item.icon}
+            key={item.id}
+            label={item.label}
+          />
         ))}
       </div>
 

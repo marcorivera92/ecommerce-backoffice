@@ -1,9 +1,8 @@
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
-import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import SegmentOutlinedIcon from "@mui/icons-material/SegmentOutlined";
+import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import WalletOutlinedIcon from "@mui/icons-material/WalletOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 
 export const menuLinks = [
   {
@@ -14,32 +13,27 @@ export const menuLinks = [
   },
   {
     id: 2,
-    label: "Market",
-    route: "market",
-    icon: <LocalGroceryStoreOutlinedIcon />,
+    label: "Categories",
+    route: "categories",
+    icon: <SegmentOutlinedIcon />,
   },
   {
     id: 3,
-    label: "Active Bids",
-    route: "bids",
-    icon: <InsightsOutlinedIcon />,
+    label: "Products",
+    route: "products",
+    icon: <Inventory2OutlinedIcon />,
   },
-  {
-    id: 4,
-    label: "Favourites",
-    route: "favourites",
-    icon: <FavoriteBorderOutlinedIcon />,
-  },
+
   {
     id: 5,
-    label: "Wallet",
-    route: "wallet",
+    label: "Orders",
+    route: "orders",
     icon: <WalletOutlinedIcon />,
   },
   {
     id: 6,
-    label: "Settings",
-    route: "settings",
-    icon: <SettingsOutlinedIcon />,
+    label: "User",
+    route: "users",
+    icon: <AdminPanelSettingsOutlinedIcon />,
   },
 ];
