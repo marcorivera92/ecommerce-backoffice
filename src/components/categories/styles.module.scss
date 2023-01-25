@@ -11,6 +11,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .headButtons {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
   }
 
   .tableContent {
@@ -25,8 +31,7 @@
   .tableItem {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
+    justify-content: space-between;
     padding: 15px 25px;
     border-bottom: 1px solid #373b44;
     cursor: pointer;
@@ -35,6 +40,13 @@
     &:hover {
       background-color: #373b44;
       border-radius: 10px;
+    }
+
+    .itemLeftCol {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
     }
 
     .imageWrapper {
@@ -61,6 +73,31 @@
     h6 {
       font-size: 0.8rem;
       text-transform: capitalize;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 5px;
+    }
+  }
+  .refresh {
+    width: 40px;
+    height: 35px;
+  }
+
+  /* ANIMATION */
+  .rotate {
+    animation: rotation 0.5s linear reverse;
+    animation-iteration-count: 2;
+    animation-timing-function: ease-out;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(359deg);
     }
   }
 }
