@@ -17,8 +17,8 @@ const GET = async (resource) => {
   }
 };
 
-const POST = (type, objBody) => {
-  return fetch(BASE_URL + type, {
+const POST = (resource, objBody) => {
+  return fetch(`${BASE_URL}/${resource}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -27,19 +27,18 @@ const POST = (type, objBody) => {
   });
 };
 
-const PUT = async (type, body) => {
-  const res = await fetch(BASE_URL + type, {
+const PUT = (resource, objBody, id) => {
+  return fetch(`${BASE_URL}/${resource}/${id}`, {
     method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(objBody),
   });
-  const data = await res.json();
-
-  return data;
 };
 
 const DELETE = (resource, id) => {
-  return fetch(`${BASE_URL}/${resource}` + id, {
+  return fetch(`${BASE_URL}/${resource}/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

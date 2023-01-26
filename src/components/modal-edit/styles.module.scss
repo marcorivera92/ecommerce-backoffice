@@ -2,7 +2,7 @@
   width: 100%;
 }
 
-.modalOverlay {
+.modalEditOverlay {
   position: fixed;
   z-index: 1;
   top: 0;
@@ -14,7 +14,7 @@
   background-color: rgba(0, 0, 0, 0.6);
   height: 100vh;
 
-  .modalContent {
+  .modalEditContent {
     border: 2px solid rgba(117, 124, 135, 0.3);
     box-shadow: inset rgba(0, 0, 0, 0.4);
     border-radius: 8px;
@@ -26,15 +26,6 @@
     z-index: 999;
 
     animation: fadeIn 0.2s forwards;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 
@@ -54,5 +45,14 @@
 
   &:hover {
     color: #f0f2f3;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -5,7 +5,7 @@ import CurrencyBitcoinOutlinedIcon from "@mui/icons-material/CurrencyBitcoinOutl
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import styles from "./styles.module.scss";
 
-const Sidebar = ({ setRoute }) => {
+const Sidebar = ({ setRoute, stateRoute }) => {
   return (
     <div className={styles.main}>
       <div className={styles.titleWrapper}>
@@ -21,6 +21,7 @@ const Sidebar = ({ setRoute }) => {
             icon={item.icon}
             key={item.id}
             label={item.label}
+            stateRoute={stateRoute}
           />
         ))}
       </div>

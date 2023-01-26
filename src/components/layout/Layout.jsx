@@ -10,7 +10,7 @@ const Layout = () => {
   return (
     <div className={styles.main}>
       <div className={styles.leftColumn}>
-        <Sidebar setRoute={setRoute} />
+        <Sidebar setRoute={setRoute} stateRoute={route} />
       </div>
       <div className={styles.rightColumn}>
         <Header />

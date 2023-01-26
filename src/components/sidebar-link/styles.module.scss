@@ -1,3 +1,8 @@
+.wrapper {
+  height: 50px;
+  transition: all 0.1s ease-in-out;
+  padding: 0 10px;
+}
 .main {
   width: 100%;
   display: flex;
@@ -24,4 +29,14 @@
   .label {
     font-size: 0.9rem;
   }
+}
+
+.active {
+  transition: all 0.1s ease-in-out;
+  color: #f0f2f3;
+  font-weight: bold;
+}
+
+.activeMark {
+  border-right: 3px solid #98f0d4;
 }

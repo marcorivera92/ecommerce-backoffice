@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { POST, PUT } from "../../utils/http";
 import styles from "./styles.module.scss";
 
-const ModalForm = ({ getCategories, category, setModalActive }) => {
+const ModalForm = ({
+  getCategories,
+  category,
+  setModalActive,
+  setModalEdit,
+}) => {
   const [edit, setEdit] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -10,6 +15,7 @@ const ModalForm = ({ getCategories, category, setModalActive }) => {
   });
 
   useEffect(() => {
+    console.log(category);
     if (category) {
       setForm({
         name: category.name,
@@ -31,18 +37,18 @@ const ModalForm = ({ getCategories, category, setModalActive }) => {
     POST("categories", form).then((category) => {
       if (category.status === 201) {
         setModalActive(false);
-        getCategories();
       }
+      getCategories();
     });
   };
 
   const editForm = (e) => {
     e.preventDefault();
-    PUT("categories", form, "/" + category.id).then((category) => {
+    PUT("categories", form, category.id).then((category) => {
       if (category.status === 200) {
-        setModalActive(false);
-        getCategories();
+        setModalEdit(false);
       }
+      getCategories();
     });
   };
 
@@ -54,30 +60,28 @@ const ModalForm = ({ getCategories, category, setModalActive }) => {
           value={form.name}
           placeholder="Name"
           onChange={(e) => handleForm("name", e)}
+          required
         />
         <input
           type="text"
           value={form.image}
           onChange={(e) => handleForm("image", e)}
           placeholder="Image"
+          required
         />
 
-        <button type="submit" onClick={(e) => submitForm(e)}>
-          Submit
-        </button>
+        {edit ? (
+          <button type="submit" onClick={(e) => editForm(e)}>
+            Edit
+          </button>
+        ) : (
+          <button type="submit" onClick={(e) => submitForm(e)}>
+            Submit
+          </button>
+        )}
       </form>
     </div>
   );
 };
-
-/* {edit ? (
-    <button type="submit" onClick={(e) => editForm(e)}>
-      Edit
-    </button>
-  ) : (
-    <button type="submit" onClick={(e) => submitForm(e)}>
-      Submit
-    </button>
-  )} */
 
 export default ModalForm;

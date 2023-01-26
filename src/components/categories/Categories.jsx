@@ -13,6 +13,7 @@ const Categories = () => {
   const [loading, setLoading] = useState(false);
   const [isRotate, setRotate] = useState(false);
   const [isModalActive, setModalActive] = useState(false);
+  const [isModalEdit, setModalEdit] = useState(false);
 
   /* FETCH */
   const getCategories = () => {
@@ -28,26 +29,23 @@ const Categories = () => {
   }, []);
 
   /* EVENTS */
-  const rotateHandle = () => setRotate((prev) => !prev);
-  const modalHandle = () => setModalActive((prev) => !prev);
+  const animationRotate = () => {
+    setRotate(true);
+    setTimeout(() => {
+      setRotate(false);
+    }, 1_000);
+  };
 
   return (
     <div className={styles.main}>
       <div className={styles.tableContainer}>
         {/* MODAL */}
-        <div
-          className={`${styles.modal} ${
-            isModalActive ? styles.modalActive : ""
-          }`}
-        >
-          {isModalActive && (
-            <Modal
-              setModalActive={setModalActive}
-              getCategories={getCategories}
-              category={category}
-            />
-          )}
-        </div>
+        {isModalActive && (
+          <Modal
+            setModalActive={setModalActive}
+            getCategories={getCategories}
+          />
+        )}
 
         <div className={styles.tableHead}>
           <h1>Categories</h1>
@@ -55,15 +53,14 @@ const Categories = () => {
             {/* Button Add */}
             <ButtonAdd
               getCategories={getCategories}
-              modalHandle={modalHandle}
-              category={category}
+              setModalActive={setModalActive}
               title="Add"
             />
 
             {/* Button Refresh */}
             <ButtonRefresh getCategories={getCategories} title="Refresh">
               <CachedOutlinedIcon
-                onClick={rotateHandle}
+                onClick={() => animationRotate()}
                 className={`${styles.refresh} ${isRotate && styles.rotate}`}
               />
             </ButtonRefresh>
@@ -86,7 +83,8 @@ const Categories = () => {
                 <div className={styles.buttons}>
                   <ButtonEdit
                     getCategories={getCategories}
-                    modalHandle={modalHandle}
+                    setModalEdit={setModalEdit}
+                    isModalEdit={isModalEdit}
                     category={{
                       name: item.name,
                       image: item.image,
