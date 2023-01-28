@@ -15,6 +15,7 @@ const Products = () => {
   const [loading, setLoading] = useState(false);
   const [isRotate, setRotate] = useState(false);
   const [isModalForm, setModalForm] = useState(false);
+  const [itemProduct, setItemProduct] = useState({});
 
   /* FETCH */
 
@@ -47,16 +48,31 @@ const Products = () => {
     }, 1_000);
   };
 
+  const openModalEdit = (item) => {
+    setItemProduct(item);
+    setModalForm((prev) => !prev);
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.tableContainer}>
         <div className={styles.tableHead}>
           <h1>Products</h1>
-          <div className={styles.headButtons}>
-            {/* Button Add */}
+          {/* MODAL */}
+          {isModalForm && (
+            <ModalFormProducts
+              setModalForm={setModalForm}
+              getProducts={getProducts}
+              isModalForm={isModalForm}
+              reloadItems={getProducts}
+              deleteElement={deleteElement}
+              item={itemProduct}
+            />
+          )}
 
+          <div className={styles.headButtons}>
             {/* Button Refresh */}
-            <ButtonRefresh getProducts={getProducts} title="Refresh">
+            <ButtonRefresh reload={getProducts} title="Refresh">
               <CachedOutlinedIcon
                 onClick={() => animationRotate()}
                 className={`${styles.refresh} ${isRotate && styles.rotate}`}
@@ -87,7 +103,8 @@ const Products = () => {
                 </div>
 
                 <div className={styles.buttons}>
-                  <button onClick={() => setModalForm((prev) => !prev)}>
+                  {/* Button Edit */}
+                  <button onClick={() => openModalEdit(item)}>
                     <DriveFileRenameOutlineOutlinedIcon />
                   </button>
 
@@ -97,18 +114,6 @@ const Products = () => {
                     title="Delete"
                   />
                 </div>
-
-                {/* MODAL */}
-                {isModalForm && (
-                  <ModalFormProducts
-                    setModalForm={setModalForm}
-                    isModalForm={isModalForm}
-                    reloadItems={getProducts}
-                    deleteElement={deleteElement}
-                    item={item}
-                    key={index}
-                  />
-                )}
               </div>
             ))}
           </div>

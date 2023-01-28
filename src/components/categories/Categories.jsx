@@ -58,7 +58,7 @@ const Categories = () => {
             />
 
             {/* Button Refresh */}
-            <ButtonRefresh getCategories={getCategories} title="Refresh">
+            <ButtonRefresh reload={getCategories} title="Refresh">
               <CachedOutlinedIcon
                 onClick={() => animationRotate()}
                 className={`${styles.refresh} ${isRotate && styles.rotate}`}

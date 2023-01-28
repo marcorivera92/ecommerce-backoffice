@@ -17,7 +17,6 @@ const ModalFormProducts = ({
     categoryId: item.category.id,
     images: [item.images[0]],
   });
-  // const [showForm, setShowForm] = useState(false);
 
   const handleForm = (input, e) => {
     let inputValue = e.target.value ? e.target.value : 0;
@@ -48,31 +47,35 @@ const ModalFormProducts = ({
 
   return (
     <div className={styles.main}>
-      {/* <li onClick={() => deleteElement(item.id)}>{item.title}</li> */}
       <div className={styles.overlay}>
         <div className={styles.modalForm}>
           {isModalForm && (
             <form onSubmit={(e) => submitForm(e)} className={styles.form}>
+              <h6>Title</h6>
               <input
                 value={formData.title}
                 onChange={(e) => handleForm("title", e)}
                 type="text"
               />
+              <h6>Price</h6>
               <input
                 value={formData.price}
                 onChange={(e) => handleForm("price", e)}
                 type="text"
               />
+              <h6>Description</h6>
               <input
                 value={formData.description}
                 onChange={(e) => handleForm("description", e)}
                 type="text"
               />
+              <h6>Catogory ID</h6>
               <input
                 value={formData.categoryId}
                 onChange={(e) => handleForm("categoryId", e)}
                 type="text"
               />
+              <h6>Image</h6>
               <input
                 value={formData.images[0]}
                 onChange={(e) => handleForm("images", e)}
@@ -83,8 +86,6 @@ const ModalFormProducts = ({
           )}
         </div>
       </div>
-
-      {/* <button onClick={() => setShowForm(!showForm)}></button> */}
     </div>
   );
 };

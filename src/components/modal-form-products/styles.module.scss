@@ -20,7 +20,7 @@
       box-sizing: border-box;
       background-color: #2a2d31;
       color: #757c87;
-      width: 400px;
+      width: 500px;
       height: 450px;
       z-index: 800;
 
@@ -39,8 +39,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
-        padding: 80px;
+        gap: 8px;
+        padding: 20px;
       }
       .form > input {
         width: 300px;
@@ -58,6 +58,10 @@
         outline: none;
       }
 
+      h6 {
+        font-size: 0.8rem;
+      }
+
       button {
         width: 80px;
         height: 35px;
@@ -65,6 +69,7 @@
         background-color: #98f0d4;
         color: black;
         border-radius: 10px;
+        margin-top: 10px;
         font-size: 0.8rem;
         font-weight: bold;
         cursor: pointer;

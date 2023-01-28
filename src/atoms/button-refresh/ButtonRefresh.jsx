@@ -1,8 +1,10 @@
 import styles from "./styles.module.scss";
 
-const ButtonRefresh = ({ children, getCategories, title }) => {
+const ButtonRefresh = ({ children, title, reload }) => {
   /* EVENTS */
-  const refreshHandle = () => getCategories();
+  const refreshHandle = () => {
+    reload();
+  };
 
   return (
     <button onClick={refreshHandle} className={styles.main} title={title}>
